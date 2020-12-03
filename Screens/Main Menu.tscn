@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Screens/Main Menu.gd" type="Script" id=1]
 
 [node name="Main Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -10,26 +13,35 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_constants/separation = 20
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 281.0
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_top = 273.0
 margin_right = 1024.0
-margin_bottom = 295.0
+margin_bottom = 287.0
 text = "Space Trail"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 299.0
+margin_top = 307.0
 margin_right = 1024.0
-margin_bottom = 319.0
+margin_bottom = 327.0
+custom_constants/separation = 20
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 493.0
-margin_right = 531.0
+[node name="Play" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 463.0
+margin_right = 501.0
 margin_bottom = 20.0
 text = "Play"
+
+[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 521.0
+margin_right = 561.0
+margin_bottom = 20.0
+text = "Quit"
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
