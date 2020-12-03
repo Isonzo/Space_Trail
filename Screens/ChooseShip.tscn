@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Screens/ChooseShip.gd" type="Script" id=1]
+
+[node name="ChooseShip" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 200.0
+margin_right = -200.0
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_top = 256.0
+margin_right = 624.0
+margin_bottom = 270.0
+text = "Choose a ship"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 290.0
+margin_right = 624.0
+margin_bottom = 310.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Scout" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 250.0
+margin_right = 297.0
+margin_bottom = 20.0
+text = "Scout"
+
+[node name="Freight" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 317.0
+margin_right = 373.0
+margin_bottom = 20.0
+text = "Freight"
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+margin_top = 330.0
+margin_right = 624.0
+margin_bottom = 344.0
+align = 1
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/Scout" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/Scout" to="." method="_on_Scout_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/Freight" to="." method="_on_Freight_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/Freight" to="." method="_on_Freight_mouse_exited"]
