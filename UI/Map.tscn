@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/JumpPoint.tscn" type="PackedScene" id=1]
+
+[node name="Map" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="JumpPoint" parent="Node" instance=ExtResource( 1 )]
+position = Vector2( 100.883, 505.796 )
+
+[node name="JumpPoint2" parent="Node" instance=ExtResource( 1 )]
+position = Vector2( 208.761, 427.884 )
+
+[node name="JumpPoint3" parent="Node" instance=ExtResource( 1 )]
+position = Vector2( 240.545, 311.343 )
+
+[node name="JumpPoint4" parent="Node" instance=ExtResource( 1 )]
+position = Vector2( 354.967, 444.835 )
+
+[node name="JumpPoint5" parent="Node" instance=ExtResource( 1 )]
+position = Vector2( 414.297, 313.462 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1025.0
+margin_bottom = 598.0
+color = Color( 0.0941176, 0.00392157, 0.0941176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
