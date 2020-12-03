@@ -54,5 +54,6 @@ margin_bottom = 344.0
 align = 1
 [connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/Scout" to="." method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/Scout" to="." method="_on_Scout_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Scout" to="." method="_on_Scout_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/Freight" to="." method="_on_Freight_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/Freight" to="." method="_on_Freight_mouse_exited"]
