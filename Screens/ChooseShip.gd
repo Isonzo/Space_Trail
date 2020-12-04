@@ -8,7 +8,7 @@ func _on_Scout_mouse_exited() -> void:
 	$VBoxContainer/Description.text =""
 func _on_Scout_pressed() -> void:
 	ShipInformation.ship_type =  "scout"
-	get_tree().change_scene("res://Screens/Main Menu.tscn")
+	get_tree().change_scene("res://Screens/MainGameScreen.tscn")
 
 
 func _on_Freight_mouse_entered() -> void:
@@ -17,5 +17,5 @@ func _on_Freight_mouse_entered() -> void:
 func _on_Freight_mouse_exited() -> void:
 	$VBoxContainer/Description.text =""
 
-
-
+func _on_Freight_pressed() -> void:
+	get_tree().change_scene("res://Screens/MainGameScreen.tscn")
