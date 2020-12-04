@@ -18,4 +18,5 @@ func _on_Freight_mouse_exited() -> void:
 	$VBoxContainer/Description.text =""
 
 func _on_Freight_pressed() -> void:
+	ShipInformation.ship_type =  "freight"
 	get_tree().change_scene("res://Screens/MainGameScreen.tscn")

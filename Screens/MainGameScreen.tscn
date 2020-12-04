@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/TabContainer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Font/gameboy.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Screens/Main_Game.gd" type="Script" id=2]
 
 [node name="MainGameScreen" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="TabContainer" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.0
 margin_right = 1030.0
-custom_fonts/font = ExtResource( 2 )

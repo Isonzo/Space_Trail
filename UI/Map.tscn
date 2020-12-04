@@ -46,8 +46,13 @@ margin_top = 496.0
 margin_right = 580.0
 margin_bottom = 527.0
 custom_fonts/font = ExtResource( 4 )
+toggle_mode = true
 text = "Travel"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="toggled" from="Button" to="." method="_on_Button_toggled"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
