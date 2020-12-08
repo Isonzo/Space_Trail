@@ -7,17 +7,14 @@ var player_moving = false
 export var SPEED = 10
 
 func _ready() -> void:
-	$JumpPoints.get_children()[0].connect("in_range", self, "_when_in_range")
+#	$JumpPoints.get_children()[0].connect("in_range", self, "_when_in_range")
+	for jump_point in JumpPoints:
+		jump_point.connect("in_range", self, "_when_in_range")
 	print(JumpPoints)
 	pass
 	
 func _process(delta: float) -> void:
-#	var direction = direction_to_point()
-#	if player_moving:
-#		$Player.move_and_slide(direction * SPEED)
-#	else:
-#		$Player.move_and_slide(Vector2.ZERO)
-	pass
+	check_for_end()
 
 
 func _on_Button_toggled(button_pressed: bool) -> void:
@@ -36,8 +33,10 @@ func _on_Timer_timeout() -> void:
 	ShipInformation.daily_calculations()
 	print("A day has passed")
 	var direction = direction_to_point()
-	if player_moving:
+	if player_moving and ShipInformation.fuel > 0:
 		$Player.move_and_slide(direction * SPEED)
+	else:
+		$Timer.stop()
 	pass # Replace with function body.
 
 func direction_to_point():
@@ -51,3 +50,7 @@ func distance_to_point():
 func _when_in_range():
 	print("Signal Worked!")
 	JumpPoints.pop_front()
+
+func check_for_end():
+	if JumpPoints.size() == 0:
+		get_tree().change_scene("res://Screens/TheEnd.tscn")

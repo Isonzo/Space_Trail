@@ -17,3 +17,4 @@ func draw_ship_stats():
 	hp.text = "HP : " + str(ShipInformation.hp)
 	oxygen.text = "Oxygen : " + str(ShipInformation.oxygen)
 	crew.text = "Crew : " + str(ShipInformation.crew)
+	fuel.text = "Fuel : " + str(ShipInformation.fuel)

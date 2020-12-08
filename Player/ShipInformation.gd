@@ -31,8 +31,8 @@ func init_ship_stats():
 
 func daily_calculations():
 	food -= crew * FOOD_RATE
-	if moving:
-		fuel -= fuel_rate
+	
+	fuel -= fuel_rate
 	
 	if oxygen < 100:
 		oxygen += FOOD_RATE
