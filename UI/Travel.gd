@@ -12,10 +12,15 @@ func _ready() -> void:
 		jump_point.connect("in_range", self, "_when_in_range")
 	$TravelPoint.connect("destination_reached", self, "_when_destination_reached")
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	check_for_end()
 	if Input.is_action_just_pressed("travel"):
 		travel_point_update()
+	
+	if $Timer.is_stopped():
+		$Button.text = "travel"
+	else:
+		$Button.text = "Stop"
 
 
 func _on_Button_toggled(button_pressed: bool) -> void:
