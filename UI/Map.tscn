@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/JumpPoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Travel.gd" type="Script" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Font/gameboy.tres" type="DynamicFont" id=4]
+[ext_resource path="res://UI/TravelPoint.tscn" type="PackedScene" id=5]
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 2 )
-SPEED = 1000
+SPEED = 250
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_top = 1.0
@@ -30,13 +31,19 @@ position = Vector2( 208.761, 427.884 )
 position = Vector2( 240.545, 311.343 )
 
 [node name="JumpPoint4" parent="JumpPoints" instance=ExtResource( 1 )]
-position = Vector2( 393.677, 233.931 )
+position = Vector2( 312, 152 )
 
 [node name="JumpPoint5" parent="JumpPoints" instance=ExtResource( 1 )]
-position = Vector2( 574.477, 181.313 )
+position = Vector2( 512, 112 )
 
 [node name="JumpPoint6" parent="JumpPoints" instance=ExtResource( 1 )]
-position = Vector2( 845.311, 204.476 )
+position = Vector2( 864, 288 )
+
+[node name="JumpPoint8" parent="JumpPoints" instance=ExtResource( 1 )]
+position = Vector2( 720, 184 )
+
+[node name="JumpPoint7" parent="JumpPoints" instance=ExtResource( 1 )]
+position = Vector2( 368, 408 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 40, 504 )
@@ -55,5 +62,8 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="TravelPoint" parent="." instance=ExtResource( 5 )]
+position = Vector2( 40, 504 )
 [connection signal="toggled" from="Button" to="." method="_on_Button_toggled"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

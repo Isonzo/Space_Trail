@@ -1,6 +1,7 @@
 extends Node
 
 const FOOD_RATE = 0.5
+const OX_RATE = 1
 
 # A ships stats in order: HP, Fuel, Fuel use rate, Food, Oxygen %, Capacity, Crew
 var ships = {
@@ -17,8 +18,10 @@ var food = ships[ship_type][3]
 var oxygen = ships[ship_type][4]
 var capacity = ships[ship_type][5]
 var crew = ships[ship_type][6]
+var morale = 10
 
-var moving = false
+var starvation = 0
+
 
 func init_ship_stats():
 	hp = ships[ship_type][0]
@@ -30,13 +33,37 @@ func init_ship_stats():
 	crew = ships[ship_type][6]
 
 func daily_calculations():
+	food_update()
+	starvation_check()
+	fuel_update()
+	oxygen_check()
+	
+	
+	
+	
+	
+func food_update():
 	food -= crew * FOOD_RATE
-	
+	if food < 0:
+		food = 0
+		starvation += 1
+	else:
+		starvation -= 0.25
+
+func starvation_check():
+	if starvation > 15 and food == 0:
+		randomize()
+		var death_roll = randi() % int(round(starvation))
+		if death_roll > 14:
+			crew -= 1
+
+func fuel_update():
 	fuel -= fuel_rate
-	
+
+func oxygen_check():
 	if oxygen < 100:
-		oxygen += FOOD_RATE
+		oxygen += OX_RATE
 	else:
 		oxygen = 100
-	
-	
+
+
