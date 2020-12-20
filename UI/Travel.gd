@@ -7,21 +7,25 @@ var player_moving = false
 export var SPEED = 10
 
 func _ready() -> void:
-#	$JumpPoints.get_children()[0].connect("in_range", self, "_when_in_range")
+#	#Connect JumpPoints
 	for jump_point in JumpPoints:
 		jump_point.connect("in_range", self, "_when_in_range")
 	$TravelPoint.connect("destination_reached", self, "_when_destination_reached")
 	
 func _process(_delta: float) -> void:
 	check_for_end()
-	if Input.is_action_just_pressed("travel"):
-		travel_point_update()
-	
+	input_check()
+	timer_text_update()
+
+func timer_text_update():
 	if $Timer.is_stopped():
 		$Button.text = "travel"
 	else:
 		$Button.text = "Stop"
 
+func input_check():
+	if Input.is_action_just_pressed("travel"):
+		travel_point_update()
 
 func _on_Button_toggled(button_pressed: bool) -> void:
 	if (button_pressed):
@@ -34,7 +38,7 @@ func _on_Button_toggled(button_pressed: bool) -> void:
 		player_moving = false
 		$Player.move_and_slide(Vector2.ZERO)
 
-
+#Basically the ticks of the game
 func _on_Timer_timeout() -> void:
 	ShipInformation.daily_calculations()
 	print("A day has passed")
@@ -54,14 +58,13 @@ func distance_to_point():
 
 func _when_in_range():
 	print("Signal Worked!")
-	JumpPoints.pop_front()
 
 func _when_destination_reached():
 	$Timer.stop()
 
 func check_for_end():
-	if JumpPoints.size() == 0:
-		get_tree().change_scene("res://Screens/TheEnd.tscn")
+	pass
 	
 func travel_point_update():
 	$TravelPoint.position = get_local_mouse_position()
+	

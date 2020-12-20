@@ -53,7 +53,7 @@ func food_update():
 func starvation_check():
 	if starvation > 15 and food == 0:
 		randomize()
-		var death_roll = randi() % starvation
+		var death_roll = randi() % int(round(starvation))
 		if death_roll > 14:
 			crew -= 1
 

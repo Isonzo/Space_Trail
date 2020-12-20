@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/ShipStatus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Font/gameboy.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Screens/Shop.tscn" type="PackedScene" id=4]
 
 [node name="TabContainer" type="TabContainer"]
 anchor_right = 1.0
@@ -36,3 +37,14 @@ __meta__ = {
 }
 
 [node name="ShipStatus" parent="Ship Status" instance=ExtResource( 2 )]
+
+[node name="Shop" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 43.0
+margin_right = -980.0
+margin_bottom = 36.0
+
+[node name="MarginContainer" parent="Shop" instance=ExtResource( 4 )]

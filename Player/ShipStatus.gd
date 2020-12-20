@@ -8,7 +8,7 @@ onready var fuel = $VBoxContainer/HBoxContainer/Fuel
 onready var crew = $VBoxContainer/Crew
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	draw_ship_stats()
 
 func draw_ship_stats():
